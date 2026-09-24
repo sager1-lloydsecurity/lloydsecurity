@@ -7,6 +7,8 @@ layout: layout.njk
   {% set system = systems[1] %}
 {% elif systemSlug == 'video-surveillance' %}
   {% set system = systems[2] %}
+{% elif systemSlug == 'energy-management' %}
+  {% set system = systems[3] %}
 {% endif %}
 <section class="system-hero">
   <div class="system-hero-grid" aria-hidden="true"></div>
@@ -15,7 +17,7 @@ layout: layout.njk
     <h1>{{ system.heroTitle }}<br /><em>{{ system.heroAccent }}</em></h1>
     <p>{{ system.heroDescription }}</p>
   </div>
-  <span class="system-page-index">{{ system.number }} / 03</span>
+  <span class="system-page-index">{{ system.number }} / 04</span>
 </section>
 <section class="system-overview">
   <div>
@@ -82,6 +84,35 @@ layout: layout.njk
       <li><span class="process-number">02</span><div><strong>Custom system selection:</strong> Once we learn more about your facility, we’ll create a unique solution. Our experts will choose the right type of cameras and identify the proper placement for maximum coverage.</div></li>
       <li><span class="process-number">03</span><div><strong>Expert installation and integration:</strong> Our certified technicians will install and integrate the cameras with other security measures you may have or need, like access control and fire detection systems.</div></li>
     </ol>
+  </div>
+</section>
+{% endif %}
+{% if systemSlug == 'energy-management' %}
+<section class="energy-details">
+  <div class="energy-details-intro">
+    <div>
+      <p class="section-kicker">Residential energy management in Minneapolis, MN</p>
+      <h2>Control comfort.<br /><span>Keep energy in check.</span></h2>
+    </div>
+    <img src="/src/img/ThermoTest-e1434735211870-300x262.png" alt="Smart thermostat for residential energy management" />
+  </div>
+  <div class="energy-details-copy">
+    <p><strong>Home energy management</strong> systems in Minneapolis have become a must-have if you’re under a tight household budget. With rising electricity costs your bills will go up because of heating, cooling and lighting.</p>
+    <p>We make it easy to access your house from your smart phone. Control your AC, heating and electricity by the Alarm.com app with your smartphone, tablet or laptop. Stay in charge of your energy usage easily and remotely with a house energy management system from Lloyd Security.</p>
+
+    <h3>Energy Management for Thermostats</h3>
+    <p>Your home’s temperature can be scheduled and pre-set to give you maximum comfort. You can have your heating and cooling running all day, but think about how much electricity is being used when you’re not home. With cellular monitoring technology you can remotely control your house’s heating and cooling with the smartphone app from Alarm.com.</p>
+    <p>With a home automation system from Lloyd Security, your home automation system will allow you to:</p>
+    <ul class="access-info-list">
+      <li><strong>Control Home AC System.</strong> The temperature will be perfect when you walk in if you set rules up for your house.</li>
+      <li><strong>Adjust Heating.</strong> If you have been away, you can turn up the heating system as you get closer to home.</li>
+      <li><strong>Turn Lights On or Off.</strong> Never come home to a dark house again. Turn a few lights on from your smartphone and geo-services.</li>
+    </ul>
+
+    <h3>Energy Management for Home Lighting</h3>
+    <p>When you’re not home, leaving lights on is a major waste of money and electricity. With the Alarm.com app you can control all of the lighting in your house at any time. If you’re out late, you can have your lights turn on once you get within a certain radius of your house thanks to the Geo-Services offered from Lloyd Security.</p>
+    <p>Energy management is easy when you combine your house with our home automation system. Once your Lloyd Security system is installed, all you need to do for maximum savings is to set all of your preferences and let the system do the rest for you. You’ll start seeing your energy consumption drop and see the savings in your bank account.</p>
+    <p>Call Lloyd Security today for a free consultation or fill out the form on the home page and we will contact you!</p>
   </div>
 </section>
 {% endif %}

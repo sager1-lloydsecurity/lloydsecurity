@@ -166,6 +166,54 @@ h1 em, h2 em { font-style: normal; font-weight: 400; }
 .surveillance-process-list li + li { margin-top: 24px; }
 .surveillance-process-section .surveillance-process-list { color: rgba(18, 20, 18, .72); }
 .surveillance-process-list strong { color: var(--ink); }
+.energy-details { background: #e7e9e2; padding: 105px 10vw; }
+.energy-details-intro { align-items: end; background: var(--lime); display: grid; gap: 8vw; grid-template-columns: minmax(220px, 1fr) minmax(180px, 300px); padding: 55px; }
+.energy-details-intro .section-kicker { color: var(--ink); }
+.energy-details-intro h2 { font-size: clamp(38px, 5vw, 68px); letter-spacing: -.08em; line-height: .92; margin: 28px 0 0; }
+.energy-details-intro h2 span { color: rgba(18, 20, 18, .62); }
+.energy-details-intro img { display: block; justify-self: end; max-width: 100%; width: 220px; }
+.energy-details-copy { margin-left: min(26vw, 330px); max-width: 720px; padding-top: 45px; }
+.energy-details-copy p { color: var(--muted); font-size: 15px; line-height: 1.7; margin: 0 0 18px; }
+.energy-details-copy p strong { color: var(--ink); }
+.energy-details-copy h3 { font-size: clamp(24px, 3vw, 36px); letter-spacing: -.06em; line-height: 1.05; margin: 48px 0 18px; }
+.energy-details-copy .access-info-list { margin-bottom: 34px; }
+.energy-page .system-band { background: #dfe8bf; }
+.energy-page .system-hero h1 { word-spacing: .14em; }
+.energy-page .system-band h2 span { color: #6f7d42; }
+.energy-page .system-cta h2 em { color: #c9e474; }
+.help-hero { min-height: 455px; }
+.help-overview { background: #e7e9e2; display: grid; gap: 10vw; grid-template-columns: minmax(220px, .7fr) minmax(320px, 1.3fr); padding: 105px 10vw; }
+.help-overview-heading h2, .battery-help-heading h2 { font-size: clamp(38px, 5vw, 68px); letter-spacing: -.08em; line-height: .92; margin: 52px 0 28px; }
+.help-overview-heading h2 span, .battery-help-heading h2 span { color: var(--muted); }
+.help-overview-heading > p:last-child { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 0; max-width: 300px; }
+.help-panel-list { border-top: 1px solid var(--line); }
+.help-panel-card { border-bottom: 1px solid var(--line); padding: 32px 0 38px; }
+.help-panel-card-heading { align-items: start; display: grid; gap: 25px; grid-template-columns: 55px 1fr; }
+.help-panel-card-heading h3 { font-size: clamp(27px, 3.5vw, 44px); letter-spacing: -.07em; line-height: 1; margin: 11px 0 0; }
+.help-panel-image, .help-panel-image-link { display: block; margin: 30px 0 32px; max-width: 620px; width: 100%; }
+.help-panel-image { aspect-ratio: 2.15 / 1; object-fit: cover; }
+.help-panel-image-link { border: 1px solid var(--line); position: relative; }
+.help-panel-image-link img { aspect-ratio: 2.15 / 1; display: block; object-fit: cover; width: 100%; }
+.help-panel-image-label { align-items: center; background: var(--ink); bottom: 14px; color: white; display: flex; font-size: 11px; font-weight: 800; gap: 14px; left: 14px; letter-spacing: .06em; padding: 13px 15px; position: absolute; text-transform: uppercase; }
+.help-panel-image-link:hover .help-panel-image-label, .help-panel-image-link:focus-visible .help-panel-image-label { background: var(--lime); color: var(--ink); }
+.help-resource-groups { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; max-width: 620px; }
+.help-resource-groups > div { border-top: 1px solid var(--line); padding-top: 16px; }
+.help-resource-link { align-items: center; border-bottom: 1px solid var(--line); display: flex; font-size: 13px; justify-content: space-between; line-height: 1.4; padding: 14px 0; transition: padding .2s ease, background .2s ease; }
+.help-resource-link:hover, .help-resource-link:focus-visible { background: var(--lime); outline: none; padding-left: 10px; padding-right: 10px; }
+.help-panel-note { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 0 0 25px; max-width: 620px; }
+.help-panel-card-edge .text-link { color: var(--ink); }
+.battery-help { background: var(--lime); display: grid; gap: 10vw; grid-template-columns: minmax(220px, .7fr) minmax(320px, 1.3fr); padding: 105px 10vw; }
+.battery-help-heading .section-kicker { color: var(--ink); }
+.battery-help-heading h2 { margin-top: 28px; }
+.battery-help-content { max-width: 720px; }
+.battery-help-lead { font-size: 18px; line-height: 1.55; margin: 0 0 48px; max-width: 620px; }
+.battery-help-list { border-top: 1px solid var(--line); margin-bottom: 38px; }
+.battery-help-list article { border-bottom: 1px solid var(--line); display: grid; gap: 25px; grid-template-columns: 55px 1fr; padding: 24px 0; }
+.battery-help-list h3 { font-size: 18px; letter-spacing: -.04em; margin: 0 0 9px; }
+.battery-help-list p { color: rgba(18, 20, 18, .72); font-size: 14px; line-height: 1.65; margin: 0; max-width: 560px; }
+.battery-resource-link { border-bottom: 1px solid var(--ink); display: inline-flex; font-size: 12px; font-weight: 800; gap: 20px; margin: 24px 0 0 22px; padding-bottom: 8px; text-transform: uppercase; }
+.battery-resource-link:hover, .battery-resource-link:focus-visible { color: rgba(18, 20, 18, .62); outline: none; }
+.help-page .system-cta h2 em { color: #c9e474; }
 .system-cta { align-items: end; background: var(--ink); color: white; display: flex; justify-content: space-between; padding: 100px 10vw; }
 .system-cta h2 { font-size: clamp(40px, 5vw, 72px); letter-spacing: -.08em; line-height: .9; margin: 48px 0 0; }
 .system-cta h2 em { color: var(--lime); font-style: normal; font-weight: 400; }
@@ -262,6 +310,20 @@ h1 em, h2 em { font-style: normal; font-weight: 400; }
 	.process-item { gap: 15px; grid-template-columns: 35px 1fr; }
 	.process-item p { grid-column: 2; }
 	.surveillance-details { padding: 75px 8vw; }
+	.energy-details { padding: 75px 8vw; }
+	.energy-details-intro { align-items: start; display: block; padding: 35px 25px 40px; }
+	.energy-details-intro img { margin-top: 38px; width: 190px; }
+	.energy-details-copy { margin-left: 0; padding-top: 38px; }
+	.help-hero { min-height: 440px; }
+	.help-overview, .battery-help { display: block; padding: 75px 8vw; }
+	.help-overview-heading h2, .battery-help-heading h2 { margin-top: 40px; }
+	.help-panel-list { margin-top: 55px; }
+	.help-panel-card-heading { gap: 15px; grid-template-columns: 35px 1fr; }
+	.help-panel-image, .help-panel-image-link { margin-top: 25px; }
+	.help-resource-groups { gap: 25px; grid-template-columns: 1fr; }
+	.battery-help-content { margin-top: 45px; }
+	.battery-help-lead { font-size: 16px; }
+	.battery-help-list article { gap: 15px; grid-template-columns: 35px 1fr; }
 	.surveillance-process-section { padding: 75px 8vw; }
 	.surveillance-details-heading, .surveillance-process { display: block; }
 	.surveillance-details-heading h2 { margin: 32px 0 24px; }

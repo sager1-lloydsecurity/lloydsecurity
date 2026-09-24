@@ -37,6 +37,11 @@ export default async function handler(request, response) {
     })
 
     if (!openAiResponse.ok) {
+      const errorBody = await openAiResponse.text()
+      console.error('OpenAI request failed', {
+        body: errorBody.slice(0, 500),
+        status: openAiResponse.status,
+      })
       return response.status(502).json({ error: 'AI provider request failed' })
     }
 
@@ -45,7 +50,8 @@ export default async function handler(request, response) {
     if (!reply) return response.status(502).json({ error: 'AI provider returned no reply' })
 
     return response.status(200).json({ reply })
-  } catch {
+  } catch (error) {
+    console.error('Assistant request failed', error instanceof Error ? error.message : 'Unknown error')
     return response.status(500).json({ error: 'Unable to reach assistant' })
   }
 }

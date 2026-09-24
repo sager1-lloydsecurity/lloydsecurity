@@ -212,3 +212,92 @@ showSlide(0)
 startRotation()
 }
 
+const resumeInput = document.querySelector('#resume-file')
+const resumeStatus = document.querySelector('#resume-status')
+
+if (resumeInput && resumeStatus) {
+  const loadedScripts = {}
+  const applicationPosition = document.querySelector('#application-position')
+  const requestedPosition = new URLSearchParams(window.location.search).get('position')
+
+  if (applicationPosition && requestedPosition) applicationPosition.value = requestedPosition
+
+  function loadResumeParserScript(source) {
+    if (loadedScripts[source]) return loadedScripts[source]
+
+    loadedScripts[source] = new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = source
+      script.onload = resolve
+      script.onerror = reject
+      document.head.appendChild(script)
+    })
+
+    return loadedScripts[source]
+  }
+
+  async function extractResumeText(file) {
+    const extension = file.name.split('.').pop().toLowerCase()
+
+    if (extension === 'txt') return file.text()
+
+    if (extension === 'pdf') {
+      await loadResumeParserScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js')
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'
+      const documentData = await window.pdfjsLib.getDocument({ data: await file.arrayBuffer() }).promise
+      const pageText = []
+
+      for (let pageNumber = 1; pageNumber <= documentData.numPages; pageNumber += 1) {
+        const page = await documentData.getPage(pageNumber)
+        const content = await page.getTextContent()
+        pageText.push(content.items.map((item) => item.str).join(' '))
+      }
+
+      return pageText.join('\n')
+    }
+
+    if (extension === 'docx') {
+      await loadResumeParserScript('https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js')
+      const result = await window.mammoth.extractRawText({ arrayBuffer: await file.arrayBuffer() })
+      return result.value
+    }
+
+    throw new Error('Please choose a PDF, DOCX, or TXT resume.')
+  }
+
+  function fillResumeFields(text) {
+    const cleanText = text.replace(/\s+/g, ' ').trim()
+    const form = resumeInput.form
+    const emailMatch = cleanText.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)
+    const phoneMatch = cleanText.match(/(?:\+?1[\s.-]?)?(?:\(?\d{3}\)?[\s.-])\d{3}[\s.-]\d{4}/)
+    const firstLine = text.split(/\r?\n/).map((line) => line.trim()).find((line) => line && !line.includes('@') && !/resume|curriculum vitae/i.test(line) && line.length < 80)
+    const messageField = form.elements.message
+    const resumeSummary = cleanText.slice(0, 6000)
+
+    if (!form.elements.name.value && firstLine) form.elements.name.value = firstLine
+    if (!form.elements.email.value && emailMatch) form.elements.email.value = emailMatch[0]
+    if (!form.elements.phone.value && phoneMatch) form.elements.phone.value = phoneMatch[0]
+    if (!messageField.value.trim()) {
+      messageField.value = `Resume details:\n\n${resumeSummary}`
+    } else if (!messageField.value.includes('Resume details:')) {
+      messageField.value += `\n\nResume details:\n\n${resumeSummary}`
+    }
+  }
+
+  resumeInput.addEventListener('change', async () => {
+    const [file] = resumeInput.files
+    if (!file) return
+
+    resumeStatus.textContent = 'Reading your resume locally...'
+
+    try {
+      const resumeText = await extractResumeText(file)
+      if (!resumeText.trim()) throw new Error('No readable text was found in that file.')
+      fillResumeFields(resumeText)
+      resumeStatus.textContent = 'Resume details added locally. Please review the form before sending.'
+    } catch (error) {
+      resumeStatus.textContent = error.message || 'We could not read that resume. You can still complete the form manually.'
+    }
+  })
+}
+

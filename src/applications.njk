@@ -1,0 +1,57 @@
+---
+layout: layout.njk
+title: Applications | Lloyd Security
+description: Apply to join the Lloyd Security team with our simple application form.
+bodyClass: applications-page
+headerClass: system-header
+permalink: applications.html
+---
+<section class="applications-hero system-hero">
+  <div class="system-hero-grid" aria-hidden="true"></div>
+  <div class="system-hero-copy">
+    <p class="section-kicker">Careers / Lloyd Security</p>
+    <h1>Start your<br /><em>application.</em></h1>
+    <p>Tell us a little about yourself, choose the position that interests you, and let your resume do some of the talking.</p>
+  </div>
+  <span class="system-page-index">02 / 02</span>
+</section>
+
+<section class="application-content">
+  <div class="application-intro">
+    <p class="section-kicker">Join the growing team</p>
+    <h2>A simple first<br /><span>step forward.</span></h2>
+    <p>Upload your resume to autofill the form, or complete the application manually. You’ll have a chance to review everything before it is sent.</p>
+    <div class="application-notes">
+      <p><span class="process-number">01</span><strong>Choose a position</strong></p>
+      <p><span class="process-number">02</span><strong>Upload and review</strong></p>
+      <p><span class="process-number">03</span><strong>Send your application</strong></p>
+    </div>
+  </div>
+  <div class="form-panel application-form-panel">
+    <p class="section-kicker">Application form</p>
+    <form class="contact-form" action="https://formsubmit.co/opportunities@lloydsecurity.com" method="POST">
+      <input type="hidden" name="_subject" value="New Lloyd Security job application" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input class="form-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <div class="form-grid">
+        <label><span>Your name</span><input type="text" name="name" autocomplete="name" required /></label>
+        <label><span>Email address</span><input type="email" name="email" autocomplete="email" required /></label>
+      </div>
+      <div class="form-grid">
+        <label><span>Phone <small>Optional</small></span><input type="tel" name="phone" autocomplete="tel" /></label>
+        <label><span>Position applying for</span><select id="application-position" name="position" required><option value="" disabled selected>Select a position</option><option>Technician</option><option>Accounting Associate</option></select></label>
+      </div>
+      <label><span>Company or current employer <small>Optional</small></span><input type="text" name="company" autocomplete="organization" /></label>
+      <label class="resume-picker"><span>Upload resume <small>Optional / used to autofill this form</small></span><input id="resume-file" type="file" accept=".pdf,.docx,.txt" /></label>
+      <p class="resume-status" id="resume-status" role="status">Your resume stays on this device until you submit the form.</p>
+      <label><span>Tell us a little more</span><textarea name="message" rows="7" required placeholder="Share a little about your experience and why this position interests you."></textarea></label>
+      <div class="form-footer"><button class="button button-dark" type="submit">Submit application <span aria-hidden="true">↗</span></button><p class="form-status" role="status">We’ll review your application and follow up with next steps.</p></div>
+    </form>
+  </div>
+</section>
+
+<section class="application-privacy">
+  <p class="section-kicker">Before you send</p>
+  <p>Your resume is read in your browser to help fill the form. The file itself is not uploaded by the autofill tool; only the information you review and submit is sent to Lloyd Security.</p>
+</section>

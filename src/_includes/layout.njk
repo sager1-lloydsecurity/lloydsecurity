@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ description }}" />
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=11" />
+  </head>
+  <body class="{{ bodyClass }}">
+    <main>
+      <header class="site-header {{ headerClass }}">
+        <a class="brand" href="/index.html#top" aria-label="Lloyd Security home">
+          <img class="brand-logo" src="/src/img/LloydLogo.png" alt="Lloyd Security Inc." />
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+          <a href="tel:+16128749295;ext=104">(612)874-9295 EXT. 104</a>
+          <a href="mailto:johnz@lloydsecurity.com">johnz@lloydsecurity.com</a>
+          <a href="/index.html#systems">Systems</a>
+          <a href="/index.html#approach">Our approach</a>
+          <a href="/contact.html" class="nav-cta">Talk to an expert <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
+      {{ content | safe }}
+      <footer class="site-footer"><div class="brand footer-brand"><img class="brand-logo" src="/src/img/LloydLogo.png" alt="Lloyd Security Inc." /></div><span>© 2026 Lloyd Security Group</span><span>Systems for peace of mind.</span></footer>
+    </main>
+    <script src="/script.js?v=6"></script>
+  </body>
+</html>

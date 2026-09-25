@@ -52,7 +52,7 @@
   </div>
   <div class="form-panel application-form-panel">
     <p class="section-kicker">Application form</p>
-    <form class="contact-form" action="https://formsubmit.co/opportunities@lloydsecurity.com" method="POST">
+    <form class="contact-form" action="https://formsubmit.co/opportunities@lloydsecurity.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="New Lloyd Security job application" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
@@ -66,8 +66,8 @@
         <label><span>Position applying for</span><select id="application-position" name="position" required><option value="" disabled selected>Select a position</option><option>Technician</option><option>Accounting Associate</option></select></label>
       </div>
       <label><span>Company or current employer <small>Optional</small></span><input type="text" name="company" autocomplete="organization" /></label>
-      <label class="resume-picker"><span>Upload resume <small>Optional / used to autofill this form</small></span><input id="resume-file" type="file" accept=".pdf,.docx,.txt" /></label>
-      <p class="resume-status" id="resume-status" role="status">Your resume stays on this device until you submit the form.</p>
+      <label class="resume-picker"><span>Upload resume <small>Optional / sent with your application</small></span><input id="resume-file" type="file" name="attachment" accept=".pdf,.docx,.txt" /></label>
+      <p class="resume-status" id="resume-status" role="status">Your resume will be attached to the email when you submit.</p>
       <label><span>Tell us a little more</span><textarea name="message" rows="7" required placeholder="Share a little about your experience and why this position interests you."></textarea></label>
       <div class="form-footer"><button class="button button-dark" type="submit">Submit application <span aria-hidden="true">↗</span></button><p class="form-status" role="status">We’ll review your application and follow up with next steps.</p></div>
     </form>
@@ -76,7 +76,7 @@
 
 <section class="application-privacy">
   <p class="section-kicker">Before you send</p>
-  <p>Your resume is read in your browser to help fill the form. The file itself is not uploaded by the autofill tool; only the information you review and submit is sent to Lloyd Security.</p>
+  <p>Your resume is read in your browser to help fill the form. When you submit, the file and the information you review are sent to Lloyd Security.</p>
 </section>
 
       <footer class="site-footer"><div class="brand footer-brand"><img class="brand-logo" src="src/img/LloydLogo.png" alt="Lloyd Security Inc." /></div><span>© 2026 Lloyd Security Group</span><span>Systems for peace of mind.</span></footer>
